@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useRef, useEffect } from "react";
@@ -16,23 +17,16 @@ interface Message {
 }
 
 const quickReplies = [
-    "I feel stressed",
-    "I feel fine",
-    "A little stressed",
-    "Very low"
-]
-
-const suggestedActions = [
-    "Start Breathing Exercise",
-    "Try a 10-min Meditation",
-    "Connect with Counselor"
+    "I'm feeling a bit down",
+    "How can I practice mindfulness?",
+    "Tell me a calming fact",
 ]
 
 export default function MobileSupport() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
-      text: "I noticed your heart rate is high, are you okay?",
+      text: "Hello! I'm your WellMind assistant. How are you feeling today?",
       sender: "bot",
     },
   ]);
@@ -84,18 +78,17 @@ export default function MobileSupport() {
     }
   };
 
+  const showQuickReplies = messages.length <= 1;
+
   return (
-    <div className="flex flex-col h-[calc(100vh-140px)]">
-       <div className="text-center mb-4">
-        <h1 className="text-2xl font-bold">Your AI Wellness Companion💡</h1>
-      </div>
+    <div className="flex flex-col h-[calc(100vh-8rem)]">
       <ScrollArea className="flex-1 my-4 pr-4">
-        <div className="space-y-4">
+        <div className="space-y-6">
           {messages.map((message) => (
             <div
               key={message.id}
               className={cn(
-                "flex items-end gap-2",
+                "flex items-start gap-3",
                 message.sender === "user" ? "justify-end" : "justify-start"
               )}
             >
@@ -111,7 +104,7 @@ export default function MobileSupport() {
                   "max-w-xs rounded-lg px-4 py-2 md:max-w-md",
                   message.sender === "user"
                     ? "bg-primary text-primary-foreground"
-                    : "bg-muted"
+                    : "bg-card border"
                 )}
               >
                 <p className="text-sm whitespace-pre-wrap">{message.text}</p>
@@ -119,7 +112,7 @@ export default function MobileSupport() {
             </div>
           ))}
           {isLoading && (
-            <div className="flex items-end gap-2 justify-start">
+            <div className="flex items-start gap-3 justify-start">
               <Avatar className="h-8 w-8">
                 <AvatarFallback className="bg-primary text-primary-foreground">
                   <Bot size={18} />
@@ -133,17 +126,29 @@ export default function MobileSupport() {
           <div ref={messagesEndRef} />
         </div>
       </ScrollArea>
-       <div className="flex flex-wrap gap-2 mb-4">
-            {quickReplies.map(reply => (
-                <Button key={reply} variant="outline" size="sm" onClick={(e) => handleSendMessage(e, reply)}>{reply}</Button>
-            ))}
-      </div>
-       <div className="space-y-2">
-          {suggestedActions.map(action => (
-                <Button key={action} variant="outline" className="w-full justify-start gap-2">
-                    {action}
-                </Button>
-            ))}
+       <div className="mt-auto">
+        {showQuickReplies && (
+          <ScrollArea className="w-full pb-4">
+            <div className="flex gap-2 w-max">
+                {quickReplies.map(reply => (
+                    <Button key={reply} variant="outline" size="sm" onClick={(e) => handleSendMessage(e, reply)}>{reply}</Button>
+                ))}
+            </div>
+          </ScrollArea>
+        )}
+        <form onSubmit={handleSendMessage} className="flex w-full items-center space-x-2">
+            <Input
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder="Message WellMind..."
+                disabled={isLoading}
+                className="flex-1"
+            />
+            <Button type="submit" size="icon" disabled={isLoading || !input.trim()}>
+                <Send className="h-4 w-4" />
+                <span className="sr-only">Send</span>
+            </Button>
+        </form>
        </div>
     </div>
   );
