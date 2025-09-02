@@ -29,7 +29,7 @@ const chartConfig = {
 
 export default function ActivityChart() {
   return (
-    <Card>
+    <Card className="h-full">
       <CardHeader>
         <div className="flex items-center gap-2">
           <Footprints className="h-6 w-6 text-accent" />
