@@ -29,7 +29,10 @@ export default function Home() {
       case 'support':
         return (
           <div className="flex items-center justify-between w-full">
-            <h1 className="text-xl font-semibold">Support</h1>
+            <div className="flex items-center gap-2">
+              <WellMindLogo />
+              <h1 className="text-xl font-semibold">WellMind</h1>
+            </div>
             <button
               onClick={() => (document.dispatchEvent(new CustomEvent('open-chat-history')))}
               className="p-2 text-muted-foreground"
