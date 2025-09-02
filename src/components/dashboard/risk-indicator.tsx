@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -68,26 +69,26 @@ export default function RiskIndicator() {
         return {
           icon: <ShieldAlert className="h-10 w-10 text-red-500" />,
           title: "High Risk",
-          description: "Potential anomalies detected. Consider taking a break or talking to someone.",
-          colorClass: "bg-red-100 dark:bg-red-900/30 border-red-500/50",
-          textColor: "text-red-500",
+          description: "Potential anomalies detected.",
+          colorClass: "bg-red-100 dark:bg-red-900/30",
+          textColor: "text-red-700 dark:text-red-400",
         };
       case "MEDIUM":
         return {
           icon: <ShieldQuestion className="h-10 w-10 text-yellow-500" />,
           title: "Medium Risk",
-          description: "Some patterns are worth keeping an eye on.",
-          colorClass: "bg-yellow-100 dark:bg-yellow-900/30 border-yellow-500/50",
-          textColor: "text-yellow-500",
+          description: "Some patterns to watch.",
+          colorClass: "bg-yellow-100 dark:bg-yellow-900/30",
+          textColor: "text-yellow-700 dark:text-yellow-400",
         };
       case "LOW":
       default:
         return {
           icon: <ShieldCheck className="h-10 w-10 text-green-500" />,
           title: "Low Risk",
-          description: "Things are looking great! Keep up the healthy habits.",
-          colorClass: "bg-green-100 dark:bg-green-900/30 border-green-500/50",
-          textColor: "text-green-500",
+          description: "Things are looking great!",
+          colorClass: "bg-green-100 dark:bg-green-900/30",
+          textColor: "text-green-700 dark:text-green-400",
         };
     }
   };
@@ -96,22 +97,22 @@ export default function RiskIndicator() {
 
   return (
     <>
-      <Card className="flex flex-col">
+      <Card className="flex flex-col h-full">
         <CardHeader>
           <CardTitle>Mental Health Risk</CardTitle>
           <CardDescription>AI-based risk assessment.</CardDescription>
         </CardHeader>
-        <CardContent className="flex flex-col flex-grow items-center justify-center gap-4 text-center">
-          <div className={cn("rounded-full p-4 border", currentRisk.colorClass)}>
+        <CardContent className="flex flex-col flex-grow items-center justify-center gap-4 text-center p-4">
+          <div className={cn("rounded-full p-4", currentRisk.colorClass)}>
             {currentRisk.icon}
           </div>
           <div className="flex flex-col">
             <h3 className={cn("text-2xl font-bold", currentRisk.textColor)}>
               {currentRisk.title}
             </h3>
-            <p className="text-muted-foreground">{currentRisk.description}</p>
+            <p className="text-muted-foreground text-sm">{currentRisk.description}</p>
           </div>
-          <Button onClick={handleCheckup} disabled={isLoading} className="mt-auto">
+          <Button onClick={handleCheckup} disabled={isLoading} className="mt-auto w-full">
             {isLoading ? <LoaderCircle className="animate-spin" /> : "Run AI Checkup"}
           </Button>
         </CardContent>

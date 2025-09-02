@@ -14,42 +14,42 @@ export default function Home() {
   return (
     <>
       <div className="md:hidden">
-        <main className="flex-1 p-4 md:p-6 lg:p-8">
+        <main className="flex-1">
           {activeTab === 'home' && <MobileHome />}
           {activeTab === 'support' && <MobileSupport />}
           {activeTab === 'profile' && <MobileProfile />}
         </main>
-        <footer className="fixed bottom-0 left-0 right-0 border-t bg-background">
-          <nav className="flex items-center justify-around">
+        <footer className="fixed bottom-0 left-0 right-0 border-t bg-background/95 backdrop-blur-sm">
+          <nav className="flex items-center justify-around h-16">
             <button
               onClick={() => setActiveTab('home')}
               className={cn(
-                'flex flex-col items-center gap-1 p-2 text-muted-foreground',
-                activeTab === 'home' && 'text-primary'
+                'flex flex-col items-center gap-1 p-2 text-muted-foreground transition-colors duration-200',
+                activeTab === 'home' ? 'text-primary' : 'hover:text-primary/80'
               )}
             >
-              <HomeIcon />
-              <span className="text-xs">Home</span>
+              <HomeIcon className="h-6 w-6" />
+              <span className="text-xs font-medium">Home</span>
             </button>
             <button
               onClick={() => setActiveTab('support')}
               className={cn(
-                'flex flex-col items-center gap-1 p-2 text-muted-foreground',
-                activeTab === 'support' && 'text-primary'
+                'flex flex-col items-center gap-1 p-2 text-muted-foreground transition-colors duration-200',
+                activeTab === 'support' ? 'text-primary' : 'hover:text-primary/80'
               )}
             >
-              <MessageSquare />
-              <span className="text-xs">Support</span>
+              <MessageSquare className="h-6 w-6" />
+              <span className="text-xs font-medium">Support</span>
             </button>
             <button
               onClick={() => setActiveTab('profile')}
               className={cn(
-                'flex flex-col items-center gap-1 p-2 text-muted-foreground',
-                activeTab === 'profile' && 'text-primary'
+                'flex flex-col items-center gap-1 p-2 text-muted-foreground transition-colors duration-200',
+                activeTab === 'profile' ? 'text-primary' : 'hover:text-primary/80'
               )}
             >
-              <UserIcon />
-              <span className="text-xs">Profile</span>
+              <UserIcon className="h-6 w-6" />
+              <span className="text-xs font-medium">Profile</span>
             </button>
           </nav>
         </footer>

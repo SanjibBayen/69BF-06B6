@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -11,18 +12,18 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis } from "recharts";
 import { HeartPulse } from "lucide-react";
 
 const chartData = [
-  { time: "12:00 AM", bpm: 72 },
-  { time: "02:00 AM", bpm: 68 },
-  { time: "04:00 AM", bpm: 65 },
-  { time: "06:00 AM", bpm: 75 },
-  { time: "08:00 AM", bpm: 82 },
-  { time: "10:00 AM", bpm: 88 },
-  { time: "12:00 PM", bpm: 95 },
-  { time: "02:00 PM", bpm: 92 },
-  { time: "04:00 PM", bpm: 85 },
-  { time: "06:00 PM", bpm: 105 },
-  { time: "08:00 PM", bpm: 98 },
-  { time: "10:00 PM", bpm: 80 },
+    { time: "12 AM", bpm: 72 },
+    { time: "2 AM", bpm: 68 },
+    { time: "4 AM", bpm: 65 },
+    { time: "6 AM", bpm: 75 },
+    { time: "8 AM", bpm: 82 },
+    { time: "10 AM", bpm: 88 },
+    { time: "12 PM", bpm: 95 },
+    { time: "2 PM", bpm: 92 },
+    { time: "4 PM", bpm: 85 },
+    { time: "6 PM", bpm: 105 },
+    { time: "8 PM", bpm: 98 },
+    { time: "10 PM", bpm: 80 },
 ];
 
 const chartConfig = {
@@ -43,10 +44,10 @@ export default function HeartRateChart() {
         <CardDescription>Your heart rate throughout the day.</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig} className="h-[250px] w-full">
+        <ChartContainer config={chartConfig} className="h-[200px] w-full sm:h-[250px]">
           <LineChart
             data={chartData}
-            margin={{ top: 5, right: 20, left: -10, bottom: 5 }}
+            margin={{ top: 5, right: 10, left: -20, bottom: 5 }}
           >
             <CartesianGrid strokeDasharray="3 3" vertical={false} />
             <XAxis
@@ -54,7 +55,7 @@ export default function HeartRateChart() {
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              tickFormatter={(value) => value.slice(0, 5)}
+              tickFormatter={(value, index) => index % 2 === 0 ? value : ''}
             />
             <YAxis
               tickLine={false}
