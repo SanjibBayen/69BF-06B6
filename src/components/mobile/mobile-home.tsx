@@ -1,8 +1,9 @@
 
 
+import ActivityChart from "../dashboard/activity-chart";
 import HeartRateCard from "../dashboard/compact/heart-rate-card";
-import SleepCard from "../dashboard/compact/sleep-card";
 import RiskIndicator from "../dashboard/risk-indicator";
+import SleepTrends from "../dashboard/sleep-trends";
 import Spo2Meter from "../dashboard/spo2-meter";
 
 
@@ -22,8 +23,12 @@ export default function MobileHome() {
                 <div className="sm:col-span-2">
                     <HeartRateCard />
                 </div>
-                <Spo2Meter />
-                <SleepCard />
+                <div className="sm:col-span-2">
+                    <ActivityChart />
+                </div>
+                <div className="sm:col-span-2">
+                    <SleepTrends />
+                </div>
             </div>
         </div>
     );

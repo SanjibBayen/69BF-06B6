@@ -19,7 +19,7 @@ export default function SleepTrends() {
   const progressValue = (sleepData.average / sleepData.goal) * 100;
 
   return (
-    <Card className="h-full">
+    <Card className="h-full w-full">
       <CardHeader>
         <div className="flex items-center gap-2">
           <BedDouble className="h-6 w-6 text-primary" />
