@@ -1,8 +1,8 @@
-
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
+import CircularProgress from "./circular-progress";
+import { Smile, Frown, Meh } from "lucide-react";
 
 const mentalStateData = {
   stress: 45,
@@ -14,30 +14,27 @@ export default function MentalStateIndicator() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Mental State Levels</CardTitle>
-        <CardDescription>Current estimated levels.</CardDescription>
+        <CardTitle>Mental State</CardTitle>
+        <CardDescription>Your current estimated levels.</CardDescription>
       </CardHeader>
-      <CardContent className="space-y-4 pt-2">
-        <div>
-          <div className="flex justify-between items-center mb-1">
-            <span className="text-sm text-muted-foreground">Stress</span>
-            <span className="text-sm font-medium">{mentalStateData.stress}%</span>
-          </div>
-          <Progress value={mentalStateData.stress} aria-label="Stress level" />
+      <CardContent className="flex justify-around items-center pt-4">
+        <div className="flex flex-col items-center gap-2">
+          <CircularProgress value={mentalStateData.stress} color="hsl(var(--primary))">
+            <Meh className="h-6 w-6 text-primary" />
+          </CircularProgress>
+          <span className="text-sm font-medium text-muted-foreground">Stress</span>
         </div>
-        <div>
-          <div className="flex justify-between items-center mb-1">
-            <span className="text-sm text-muted-foreground">Anxiety</span>
-            <span className="text-sm font-medium">{mentalStateData.anxiety}%</span>
-          </div>
-          <Progress value={mentalStateData.anxiety} aria-label="Anxiety level" className="[&>div]:bg-yellow-500" />
+        <div className="flex flex-col items-center gap-2">
+          <CircularProgress value={mentalStateData.anxiety} color="hsl(var(--chart-4))">
+            <Frown className="h-6 w-6 text-yellow-500" />
+          </CircularProgress>
+          <span className="text-sm font-medium text-muted-foreground">Anxiety</span>
         </div>
-        <div>
-          <div className="flex justify-between items-center mb-1">
-            <span className="text-sm text-muted-foreground">Depression</span>
-            <span className="text-sm font-medium">{mentalStateData.depression}%</span>
-          </div>
-          <Progress value={mentalStateData.depression} aria-label="Depression level" className="[&>div]:bg-red-500" />
+        <div className="flex flex-col items-center gap-2">
+          <CircularProgress value={mentalStateData.depression} color="hsl(var(--destructive))">
+            <Smile className="h-6 w-6 text-red-500" />
+          </CircularProgress>
+          <span className="text-sm font-medium text-muted-foreground">Well-being</span>
         </div>
       </CardContent>
     </Card>
