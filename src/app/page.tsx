@@ -13,18 +13,20 @@ import WeeklyReport from '@/components/mobile/weekly-report';
 export default function Home() {
   const [activeTab, setActiveTab] = useState('home');
 
-  const getHeader = () => {
+  const getHeaderContent = () => {
     switch (activeTab) {
       case 'home':
         return (
-          <div className="flex items-center gap-2">
-            <WellMindLogo />
-            <h1 className="text-xl font-semibold">WellMind</h1>
+          <div className="flex items-center justify-between w-full">
+            <div className="flex items-center gap-2">
+              <WellMindLogo />
+              <h1 className="text-xl font-semibold">WellMind</h1>
+            </div>
           </div>
         );
       case 'support':
         return (
-          <>
+          <div className="flex items-center justify-between w-full">
             <h1 className="text-xl font-semibold">Support</h1>
             <button
               onClick={() => (document.dispatchEvent(new CustomEvent('open-chat-history')))}
@@ -33,17 +35,17 @@ export default function Home() {
               <History className="h-6 w-6" />
               <span className="sr-only">Chat History</span>
             </button>
-          </>
+          </div>
         );
       case 'report':
         return (
-          <>
-             <button onClick={() => setActiveTab('profile')} className="p-2 text-muted-foreground -ml-2">
+          <div className="relative flex items-center justify-center w-full">
+             <button onClick={() => setActiveTab('profile')} className="absolute left-0 p-2 text-muted-foreground -ml-2">
                 <ArrowLeft className="h-6 w-6" />
                 <span className="sr-only">Back</span>
             </button>
             <h1 className="text-xl font-semibold">Weekly Report</h1>
-          </>
+          </div>
         )
       case 'profile':
         return null;
@@ -57,8 +59,8 @@ export default function Home() {
     <>
       <div className="md:hidden flex flex-col h-screen">
         {activeTab !== 'profile' && (
-          <header className="sticky top-0 z-10 flex items-center justify-between h-16 px-4 border-b bg-background/95 backdrop-blur-sm">
-            {getHeader()}
+          <header className="sticky top-0 z-10 flex items-center h-16 px-4 border-b bg-background/95 backdrop-blur-sm">
+            {getHeaderContent()}
           </header>
         )}
         <main className="flex-1 overflow-y-auto">
