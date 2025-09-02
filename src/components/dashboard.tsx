@@ -5,6 +5,7 @@ import RiskIndicator from '@/components/dashboard/risk-indicator';
 import NotificationTriggers from '@/components/dashboard/notification-triggers';
 import WearableStatus from './dashboard/wearable-status';
 import { SidebarTrigger } from './ui/sidebar';
+import Spo2Meter from './dashboard/spo2-meter';
 
 export function Dashboard() {
     return (
@@ -23,9 +24,8 @@ export function Dashboard() {
                     </div>
                     <RiskIndicator />
                     <ActivityChart />
-                    <div className="lg:col-span-2">
-                        <SleepTrends />
-                    </div>
+                    <Spo2Meter />
+                    <SleepTrends />
                     <div className="lg:col-span-3">
                         <NotificationTriggers />
                     </div>

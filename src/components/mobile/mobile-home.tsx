@@ -1,5 +1,7 @@
+
 import HeartRateChart from "../dashboard/heart-rate-chart";
 import RiskIndicator from "../dashboard/risk-indicator";
+import Spo2Meter from "../dashboard/spo2-meter";
 import SleepTrends from "../dashboard/sleep-trends";
 
 
@@ -15,7 +17,10 @@ export default function MobileHome() {
             <HeartRateChart />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <RiskIndicator />
-                <SleepTrends />
+                <Spo2Meter />
+                <div className="sm:col-span-2">
+                  <SleepTrends />
+                </div>
             </div>
         </div>
     );
