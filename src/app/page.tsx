@@ -9,6 +9,7 @@ import MobileSupport from '@/components/mobile/mobile-support';
 import DesktopLayout from '@/components/desktop-layout';
 import WellMindLogo from '@/components/well-mind-logo';
 import WeeklyReport from '@/components/mobile/weekly-report';
+import WearableStatus from '@/components/dashboard/wearable-status';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('home');
@@ -22,6 +23,7 @@ export default function Home() {
               <WellMindLogo />
               <h1 className="text-xl font-semibold">WellMind</h1>
             </div>
+            <WearableStatus />
           </div>
         );
       case 'support':
