@@ -14,13 +14,15 @@ export default function MobileHome() {
                     <p className="text-muted-foreground">Take one step for yourself today 🌱</p>
                 </div>
             </div>
-            <HeartRateChart />
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <RiskIndicator />
-                <Spo2Meter />
+             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="sm:col-span-2">
-                  <SleepTrends />
+                    <RiskIndicator />
                 </div>
+                <div className="sm:col-span-2">
+                    <HeartRateChart />
+                </div>
+                <Spo2Meter />
+                <SleepTrends />
             </div>
         </div>
     );
