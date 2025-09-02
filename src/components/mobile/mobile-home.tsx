@@ -9,7 +9,7 @@ import Spo2Meter from "../dashboard/spo2-meter";
 
 export default function MobileHome() {
     return (
-        <div className="space-y-6 p-4 md:p-6 pb-24">
+        <div className="space-y-6 p-4 md:p-6 pb-4">
             <div>
                 <h1 className="text-3xl font-bold">Hi, Alex 👋</h1>
                 <p className="text-muted-foreground">Your daily wellness summary.</p>
