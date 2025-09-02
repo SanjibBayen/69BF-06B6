@@ -3,7 +3,7 @@
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Bell, BarChart, LineChart, Lock, User, Watch } from "lucide-react";
+import { Bell, BarChart, LineChart, Lock, User, Watch, UserCog, Palette } from "lucide-react";
 
 const ChatGptIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg
@@ -32,6 +32,8 @@ export default function MobileProfile({ onNavigate }: MobileProfileProps) {
         { icon: ChatGptIcon, text: "Connect ChatGPT", action: () => {} },
         { icon: BarChart, text: "Weekly Reports", action: () => onNavigate('report') },
         { icon: LineChart, text: "Trend Insights", action: () => {} },
+        { icon: UserCog, text: "Personalization", action: () => {} },
+        { icon: Palette, text: "Theme", action: () => {} },
         { icon: Lock, text: "Privacy & Settings", action: () => {} },
         { icon: Bell, text: "Notifications", action: () => {} },
     ];
