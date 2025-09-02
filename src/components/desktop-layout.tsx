@@ -64,7 +64,7 @@ export default function DesktopLayout() {
                     />
                 </div>
                 <div className="flex flex-col truncate">
-                    <span className="text-sm font-medium truncate">Alex Doe</span>
+                    <span className="text-sm font-medium truncate">Sanjib</span>
                     <span className="text-xs text-muted-foreground truncate">alex.doe@example.com</span>
                 </div>
             </div>
