@@ -2,12 +2,12 @@
 
 import { useTheme } from "next-themes"
 import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetDescription,
-} from "@/components/ui/sheet"
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Sun, Moon, Cog } from "lucide-react"
 
@@ -20,15 +20,15 @@ export function ThemeSwitcher({ open, onOpenChange }: ThemeSwitcherProps) {
   const { setTheme } = useTheme()
 
   return (
-    <Sheet open={open} onOpenChange={onOpenChange}>
-      <SheetContent>
-        <SheetHeader>
-          <SheetTitle>Select Theme</SheetTitle>
-          <SheetDescription>
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Select Theme</DialogTitle>
+          <DialogDescription>
             Choose a theme to personalize your experience.
-          </SheetDescription>
-        </SheetHeader>
-        <div className="mt-8 flex flex-col gap-4">
+          </DialogDescription>
+        </DialogHeader>
+        <div className="mt-4 flex flex-col gap-4">
           <Button
             variant="outline"
             className="w-full justify-start gap-4 h-14 text-base"
@@ -63,7 +63,7 @@ export function ThemeSwitcher({ open, onOpenChange }: ThemeSwitcherProps) {
             System
           </Button>
         </div>
-      </SheetContent>
-    </Sheet>
+      </DialogContent>
+    </Dialog>
   )
 }
