@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Bot, LoaderCircle, Send, Mic, Camera } from "lucide-react";
+import { Bot, LoaderCircle, Send, Mic } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -128,9 +128,6 @@ export default function MobileSupport() {
       )}
        <div className="absolute bottom-0 left-0 right-0 p-4 bg-transparent">
         <form onSubmit={handleSendMessage} className="flex w-full items-center space-x-2 bg-background p-2 rounded-full border shadow-lg">
-            <Button variant="ghost" size="icon" type="button" className="flex-shrink-0">
-                <Camera className="h-5 w-5" />
-            </Button>
             <Input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
