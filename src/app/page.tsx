@@ -7,19 +7,42 @@ import { cn } from '@/lib/utils';
 import MobileProfile from '@/components/mobile/mobile-profile';
 import MobileSupport from '@/components/mobile/mobile-support';
 import DesktopLayout from '@/components/desktop-layout';
+import WellMindLogo from '@/components/well-mind-logo';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('home');
 
+  const getHeaderTitle = () => {
+    switch (activeTab) {
+      case 'home':
+        return (
+          <div className="flex items-center gap-2">
+            <WellMindLogo />
+            <h1 className="text-xl font-semibold">WellMind</h1>
+          </div>
+        );
+      case 'support':
+        return <h1 className="text-xl font-semibold">Support</h1>;
+      case 'profile':
+        return <h1 className="text-xl font-semibold">Profile</h1>;
+      default:
+        return null;
+    }
+  };
+
+
   return (
     <>
-      <div className="md:hidden">
-        <main className="flex-1">
+      <div className="md:hidden flex flex-col h-screen">
+        <header className="sticky top-0 z-10 flex items-center justify-between h-16 px-4 border-b bg-background/95 backdrop-blur-sm">
+          {getHeaderTitle()}
+        </header>
+        <main className="flex-1 overflow-y-auto">
           {activeTab === 'home' && <MobileHome />}
           {activeTab === 'support' && <MobileSupport />}
           {activeTab === 'profile' && <MobileProfile />}
         </main>
-        <footer className="fixed bottom-0 left-0 right-0 border-t bg-background/95 backdrop-blur-sm">
+        <footer className="sticky bottom-0 left-0 right-0 border-t bg-background/95 backdrop-blur-sm">
           <nav className="flex items-center justify-around h-16">
             <button
               onClick={() => setActiveTab('home')}

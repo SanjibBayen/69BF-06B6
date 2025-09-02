@@ -8,7 +8,7 @@ export default function MobileHome() {
         <div className="space-y-6 p-4 md:p-6 pb-24">
             <div className="flex justify-between items-center">
                 <div>
-                    <h1 className="text-2xl font-bold">Hi, Sanjib 👋</h1>
+                    <h1 className="text-2xl font-bold">Hi, Alex 👋</h1>
                     <p className="text-muted-foreground">Take one step for yourself today 🌱</p>
                 </div>
             </div>
