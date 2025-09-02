@@ -24,7 +24,7 @@ export default function Home() {
       case 'support':
         return <h1 className="text-xl font-semibold">Support</h1>;
       case 'profile':
-        return <h1 className="text-xl font-semibold">Profile</h1>;
+        return null; // Don't show a title for the profile tab
       default:
         return null;
     }
@@ -34,18 +34,20 @@ export default function Home() {
   return (
     <>
       <div className="md:hidden flex flex-col h-screen">
-        <header className="sticky top-0 z-10 flex items-center justify-between h-16 px-4 border-b bg-background/95 backdrop-blur-sm">
-          {getHeaderTitle()}
-          {activeTab === 'support' && (
-            <button
-              onClick={() => (document.dispatchEvent(new CustomEvent('open-chat-history')))}
-              className="p-2 text-muted-foreground"
-            >
-              <History className="h-6 w-6" />
-              <span className="sr-only">Chat History</span>
-            </button>
-          )}
-        </header>
+        {activeTab !== 'profile' && (
+          <header className="sticky top-0 z-10 flex items-center justify-between h-16 px-4 border-b bg-background/95 backdrop-blur-sm">
+            {getHeaderTitle()}
+            {activeTab === 'support' && (
+              <button
+                onClick={() => (document.dispatchEvent(new CustomEvent('open-chat-history')))}
+                className="p-2 text-muted-foreground"
+              >
+                <History className="h-6 w-6" />
+                <span className="sr-only">Chat History</span>
+              </button>
+            )}
+          </header>
+        )}
         <main className="flex-1 overflow-y-auto">
           {activeTab === 'home' && <MobileHome />}
           {activeTab === 'support' && <MobileSupport />}

@@ -16,7 +16,7 @@ const profileOptions = [
 export default function MobileProfile() {
 
     return (
-        <div className="space-y-4 pb-20">
+        <div className="space-y-4 p-4 pb-20">
             <div className="flex items-center justify-between">
                 <h1 className="text-2xl font-bold">Profile</h1>
                 <Avatar>
