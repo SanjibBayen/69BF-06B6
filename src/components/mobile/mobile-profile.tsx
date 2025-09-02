@@ -4,6 +4,8 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Bell, BarChart, LineChart, Lock, User, Watch, UserCog, Palette } from "lucide-react";
+import { useState } from "react";
+import { ThemeSwitcher } from "../theme-switcher";
 
 const ChatGptIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg
@@ -26,6 +28,7 @@ interface MobileProfileProps {
 }
 
 export default function MobileProfile({ onNavigate }: MobileProfileProps) {
+    const [isThemeSwitcherOpen, setIsThemeSwitcherOpen] = useState(false);
 
     const profileOptions = [
         { icon: Watch, text: "Connect Watch", action: () => {} },
@@ -33,7 +36,7 @@ export default function MobileProfile({ onNavigate }: MobileProfileProps) {
         { icon: BarChart, text: "Weekly Reports", action: () => onNavigate('report') },
         { icon: LineChart, text: "Trend Insights", action: () => {} },
         { icon: UserCog, text: "Personalization", action: () => {} },
-        { icon: Palette, text: "Theme", action: () => {} },
+        { icon: Palette, text: "Theme", action: () => setIsThemeSwitcherOpen(true) },
         { icon: Lock, text: "Privacy & Settings", action: () => {} },
         { icon: Bell, text: "Notifications", action: () => {} },
     ];
@@ -67,6 +70,7 @@ export default function MobileProfile({ onNavigate }: MobileProfileProps) {
                     </div>
                 </ScrollArea>
             </div>
+            <ThemeSwitcher open={isThemeSwitcherOpen} onOpenChange={setIsThemeSwitcherOpen} />
         </>
     );
 }
