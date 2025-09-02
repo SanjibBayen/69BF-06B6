@@ -1,6 +1,6 @@
 
 'use client';
-import { Home as HomeIcon, MessageSquare, User as UserIcon } from 'lucide-react';
+import { Home as HomeIcon, MessageSquare, User as UserIcon, History } from 'lucide-react';
 import MobileHome from '@/components/mobile/mobile-home';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
@@ -36,6 +36,15 @@ export default function Home() {
       <div className="md:hidden flex flex-col h-screen">
         <header className="sticky top-0 z-10 flex items-center justify-between h-16 px-4 border-b bg-background/95 backdrop-blur-sm">
           {getHeaderTitle()}
+          {activeTab === 'support' && (
+            <button
+              onClick={() => (document.dispatchEvent(new CustomEvent('open-chat-history')))}
+              className="p-2 text-muted-foreground"
+            >
+              <History className="h-6 w-6" />
+              <span className="sr-only">Chat History</span>
+            </button>
+          )}
         </header>
         <main className="flex-1 overflow-y-auto">
           {activeTab === 'home' && <MobileHome />}
