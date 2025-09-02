@@ -6,7 +6,7 @@ import { CheckCircle2, TrendingUp, TrendingDown, Hourglass, Moon, Sun, Zap } fro
 
 export default function WeeklyReport() {
   return (
-    <div className="space-y-4 text-sm">
+    <div className="space-y-4 text-sm p-4">
       <Card>
         <CardHeader className="pb-2">
           <CardTitle className="text-base">Summary</CardTitle>

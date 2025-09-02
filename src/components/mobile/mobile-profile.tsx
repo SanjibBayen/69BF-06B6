@@ -4,10 +4,6 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Bell, BarChart, LineChart, Lock, User, Watch } from "lucide-react";
-import { useState } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import WeeklyReport from "./weekly-report";
-
 
 const ChatGptIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg
@@ -25,14 +21,16 @@ const ChatGptIcon = (props: React.SVGProps<SVGSVGElement>) => (
     </svg>
 );
 
+interface MobileProfileProps {
+  onNavigate: (tab: string) => void;
+}
 
-export default function MobileProfile() {
-    const [isReportOpen, setIsReportOpen] = useState(false);
+export default function MobileProfile({ onNavigate }: MobileProfileProps) {
 
     const profileOptions = [
         { icon: Watch, text: "Connect Watch", action: () => {} },
         { icon: ChatGptIcon, text: "Connect ChatGPT", action: () => {} },
-        { icon: BarChart, text: "Weekly Reports", action: () => setIsReportOpen(true) },
+        { icon: BarChart, text: "Weekly Reports", action: () => onNavigate('report') },
         { icon: LineChart, text: "Trend Insights", action: () => {} },
         { icon: Lock, text: "Privacy & Settings", action: () => {} },
         { icon: Bell, text: "Notifications", action: () => {} },
@@ -67,14 +65,6 @@ export default function MobileProfile() {
                     </div>
                 </ScrollArea>
             </div>
-            <Dialog open={isReportOpen} onOpenChange={setIsReportOpen}>
-                <DialogContent className="max-w-md">
-                    <DialogHeader>
-                        <DialogTitle>Weekly Wellness Report</DialogTitle>
-                    </DialogHeader>
-                    <WeeklyReport />
-                </DialogContent>
-            </Dialog>
         </>
     );
 }
