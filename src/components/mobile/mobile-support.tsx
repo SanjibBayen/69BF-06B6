@@ -31,9 +31,9 @@ export default function MobileSupport() {
     scrollToBottom();
   }, [messages, isLoading]);
 
-  const handleSendMessage = async (e: React.FormEvent) => {
+  const handleSendMessage = async (e: React.FormEvent | React.MouseEvent<HTMLButtonElement>, messageText?: string) => {
     e.preventDefault();
-    const textToSend = input;
+    const textToSend = messageText || input;
     if (!textToSend.trim() || isLoading) return;
 
     const userMessage: Message = {
@@ -70,9 +70,15 @@ export default function MobileSupport() {
   return (
     <div className="relative flex flex-col h-[calc(100vh-8rem)]">
       {messages.length === 0 && !isLoading ? (
-        <div className="flex-1 flex flex-col items-center justify-center text-center">
+        <div className="flex-1 flex flex-col items-center justify-center text-center p-4">
             <WellMindLogo className="h-16 w-16" />
-            <h2 className="mt-6 text-2xl font-semibold">How can I help you today?</h2>
+            <h2 className="mt-6 text-2xl font-semibold">Your safe space to talk.</h2>
+            <p className="mt-2 text-muted-foreground">I'm here to listen, whenever you're ready.</p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-2 w-full max-w-sm">
+                <Button variant="outline" className="w-full" onClick={(e) => handleSendMessage(e, "I'm feeling anxious")}>I'm feeling anxious</Button>
+                <Button variant="outline" className="w-full" onClick={(e) => handleSendMessage(e, "I need to vent")}>I need to vent</Button>
+                <Button variant="outline" className="w-full" onClick={(e) => handleSendMessage(e, "Suggest a mindfulness exercise")}>Suggest an exercise</Button>
+            </div>
         </div>
       ) : (
         <ScrollArea className="flex-1 my-4 pr-4">
