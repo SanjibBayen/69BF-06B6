@@ -7,7 +7,7 @@ import { Smile, Frown, Meh } from "lucide-react";
 const mentalStateData = {
   stress: 45,
   anxiety: 60,
-  depression: 25,
+  wellbeing: 75,
 };
 
 export default function MentalStateIndicator() {
@@ -31,8 +31,8 @@ export default function MentalStateIndicator() {
           <span className="text-sm font-medium text-muted-foreground">Anxiety</span>
         </div>
         <div className="flex flex-col items-center gap-2">
-          <CircularProgress value={mentalStateData.depression} color="hsl(var(--destructive))">
-            <Smile className="h-6 w-6 text-red-500" />
+          <CircularProgress value={mentalStateData.wellbeing} color="hsl(var(--chart-2))">
+            <Smile className="h-6 w-6 text-green-500" />
           </CircularProgress>
           <span className="text-sm font-medium text-muted-foreground">Well-being</span>
         </div>
