@@ -24,24 +24,24 @@ const ChatGptIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 interface MobileProfileProps {
-  onNavigate: (tab: string) => void;
+  onNavigate: (tab: string, page?: string) => void;
 }
 
 export default function MobileProfile({ onNavigate }: MobileProfileProps) {
     const [isThemeSwitcherOpen, setIsThemeSwitcherOpen] = useState(false);
 
     const profileOptions = [
-        { icon: Watch, text: "Connect Watch", action: () => {} },
-        { icon: ChatGptIcon, text: "Connect ChatGPT", action: () => {} },
-        { icon: Music, text: "Connect Spotify", action: () => {} },
-        { icon: BriefcaseMedical, text: "Therapist Appointment", action: () => {} },
-        { icon: Stethoscope, text: "Add My Health Issue", action: () => {} },
+        { icon: Watch, text: "Connect Watch", action: () => onNavigate('profile', 'connectWatch') },
+        { icon: ChatGptIcon, text: "Connect ChatGPT", action: () => onNavigate('profile', 'connectChatGPT') },
+        { icon: Music, text: "Connect Spotify", action: () => onNavigate('profile', 'connectSpotify') },
+        { icon: BriefcaseMedical, text: "Therapist Appointment", action: () => onNavigate('profile', 'therapistAppointment') },
+        { icon: Stethoscope, text: "Add My Health Issue", action: () => onNavigate('profile', 'addHealthIssue') },
         { icon: BarChart, text: "Weekly Reports", action: () => onNavigate('report') },
-        { icon: LineChart, text: "Trend Insights", action: () => {} },
-        { icon: UserCog, text: "Personalization", action: () => {} },
+        { icon: LineChart, text: "Trend Insights", action: () => onNavigate('profile', 'trendInsights') },
+        { icon: UserCog, text: "Personalization", action: () => onNavigate('profile', 'personalization') },
         { icon: Palette, text: "Theme", action: () => setIsThemeSwitcherOpen(true) },
-        { icon: Lock, text: "Privacy & Settings", action: () => {} },
-        { icon: Bell, text: "Notifications", action: () => {} },
+        { icon: Lock, text: "Privacy & Settings", action: () => onNavigate('profile', 'privacy') },
+        { icon: Bell, text: "Notifications", action: () => onNavigate('profile', 'notifications') },
     ];
 
 
