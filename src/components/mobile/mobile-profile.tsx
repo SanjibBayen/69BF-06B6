@@ -3,7 +3,7 @@
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Bell, BarChart, LineChart, Lock, User, Watch, UserCog, Palette, BriefcaseMedical, Stethoscope } from "lucide-react";
+import { Bell, BarChart, LineChart, Lock, User, Watch, UserCog, Palette, BriefcaseMedical, Stethoscope, Music } from "lucide-react";
 import { useState } from "react";
 import { ThemeSwitcher } from "../theme-switcher";
 
@@ -33,6 +33,7 @@ export default function MobileProfile({ onNavigate }: MobileProfileProps) {
     const profileOptions = [
         { icon: Watch, text: "Connect Watch", action: () => {} },
         { icon: ChatGptIcon, text: "Connect ChatGPT", action: () => {} },
+        { icon: Music, text: "Connect Spotify", action: () => {} },
         { icon: BriefcaseMedical, text: "Therapist Appointment", action: () => {} },
         { icon: Stethoscope, text: "Add My Health Issue", action: () => {} },
         { icon: BarChart, text: "Weekly Reports", action: () => onNavigate('report') },
