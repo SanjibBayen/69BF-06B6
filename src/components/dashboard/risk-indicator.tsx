@@ -67,19 +67,19 @@ export default function RiskIndicator() {
     switch (level) {
       case "HIGH":
         return {
-          icon: <ShieldAlert className="h-10 w-10 text-red-500" />,
+          icon: <ShieldAlert className="h-10 w-10 text-destructive" />,
           title: "High Risk",
           description: "Potential anomalies detected.",
-          colorClass: "bg-red-100 dark:bg-red-900/30",
-          textColor: "text-red-700 dark:text-red-400",
+          colorClass: "bg-destructive/10",
+          textColor: "text-destructive",
         };
       case "MEDIUM":
         return {
           icon: <ShieldQuestion className="h-10 w-10 text-yellow-500" />,
           title: "Medium Risk",
           description: "Some patterns to watch.",
-          colorClass: "bg-yellow-100 dark:bg-yellow-900/30",
-          textColor: "text-yellow-700 dark:text-yellow-400",
+          colorClass: "bg-yellow-500/10",
+          textColor: "text-yellow-500",
         };
       case "LOW":
       default:
@@ -87,8 +87,8 @@ export default function RiskIndicator() {
           icon: <ShieldCheck className="h-10 w-10 text-green-500" />,
           title: "Low Risk",
           description: "Things are looking great!",
-          colorClass: "bg-green-100 dark:bg-green-900/30",
-          textColor: "text-green-700 dark:text-green-400",
+          colorClass: "bg-green-500/10",
+          textColor: "text-green-500",
         };
     }
   };

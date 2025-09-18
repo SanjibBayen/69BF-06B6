@@ -26,13 +26,13 @@ export default function MentalStateIndicator() {
         </div>
         <div className="flex flex-col items-center gap-2">
           <CircularProgress value={mentalStateData.anxiety} color="hsl(var(--chart-4))">
-            <Frown className="h-6 w-6 text-yellow-500" />
+            <Frown className="h-6 w-6" style={{color: 'hsl(var(--chart-4))'}} />
           </CircularProgress>
           <span className="text-sm font-medium text-muted-foreground">Anxiety</span>
         </div>
         <div className="flex flex-col items-center gap-2">
           <CircularProgress value={mentalStateData.wellbeing} color="hsl(var(--chart-2))">
-            <Smile className="h-6 w-6 text-green-500" />
+            <Smile className="h-6 w-6" style={{color: 'hsl(var(--chart-2))'}} />
           </CircularProgress>
           <span className="text-sm font-medium text-muted-foreground">Well-being</span>
         </div>
