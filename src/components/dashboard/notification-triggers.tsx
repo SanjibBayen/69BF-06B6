@@ -16,7 +16,7 @@ export default function NotificationTriggers() {
           <CardTitle>Simulate Notifications</CardTitle>
         </div>
         <CardDescription>
-          Trigger mock notifications to see how WellMind helps you.
+          Trigger mock notifications to see how pain2peace helps you.
         </CardDescription>
       </CardHeader>
       <CardContent className="flex flex-wrap gap-2">

@@ -26,7 +26,7 @@ interface Message {
 
 export default function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([
-    { id: "1", text: "Hello! I'm your WellMind assistant. How are you feeling today?", sender: "bot" },
+    { id: "1", text: "Hello! I'm your pain2peace assistant. How are you feeling today?", sender: "bot" },
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -87,7 +87,7 @@ export default function Chatbot() {
           </SheetTrigger>
           <SheetContent className="flex flex-col w-full sm:w-[540px] sm:max-w-full">
             <SheetHeader>
-              <SheetTitle>WellMind Assistant</SheetTitle>
+              <SheetTitle>pain2peace Assistant</SheetTitle>
               <SheetDescription>
                 Your friendly support chatbot. I'm here to listen.
               </SheetDescription>

@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
-  title: 'WellMind',
+  title: 'pain2peace',
   description: 'Your personal mental wellness companion.',
 };
 

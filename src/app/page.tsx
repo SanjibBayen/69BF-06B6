@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 import MobileProfile from '@/components/mobile/mobile-profile';
 import MobileSupport from '@/components/mobile/mobile-support';
 import DesktopLayout from '@/components/desktop-layout';
-import WellMindLogo from '@/components/well-mind-logo';
+import Pain2PeaceLogo from '@/components/pain2peace-logo';
 import WeeklyReport from '@/components/mobile/weekly-report';
 import WearableStatus from '@/components/dashboard/wearable-status';
 
@@ -20,8 +20,8 @@ export default function Home() {
         return (
           <div className="flex items-center justify-between w-full">
             <div className="flex items-center gap-2">
-              <WellMindLogo />
-              <h1 className="text-xl font-semibold">WellMind</h1>
+              <Pain2PeaceLogo />
+              <h1 className="text-xl font-semibold">pain2peace</h1>
             </div>
             <WearableStatus />
           </div>
@@ -30,8 +30,8 @@ export default function Home() {
         return (
           <div className="flex items-center justify-between w-full">
             <div className="flex items-center gap-2">
-              <WellMindLogo />
-              <h1 className="text-xl font-semibold">WellMind</h1>
+              <Pain2PeaceLogo />
+              <h1 className="text-xl font-semibold">pain2peace</h1>
             </div>
             <button
               onClick={() => (document.dispatchEvent(new CustomEvent('open-chat-history')))}

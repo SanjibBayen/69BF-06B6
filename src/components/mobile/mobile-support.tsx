@@ -9,7 +9,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { chatbotSupport } from "@/ai/flows/chatbot-support";
 import { cn } from "@/lib/utils";
-import WellMindLogo from "../well-mind-logo";
+import Pain2PeaceLogo from "@/components/pain2peace-logo";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 
 interface Message {
@@ -40,12 +40,12 @@ export default function MobileSupport() {
 
   // Load history and last session from localStorage on mount
   useEffect(() => {
-    const storedHistory = localStorage.getItem("wellmind_chat_history");
+    const storedHistory = localStorage.getItem("pain2peace_chat_history");
     if (storedHistory) {
       setHistory(JSON.parse(storedHistory));
     }
 
-    const lastSessionId = localStorage.getItem("wellmind_last_session_id");
+    const lastSessionId = localStorage.getItem("pain2peace_last_session_id");
     if (lastSessionId) {
       loadSession(lastSessionId);
     } else {
@@ -64,7 +64,7 @@ export default function MobileSupport() {
       };
       const newHistory = [currentSession, ...updatedHistory].sort((a, b) => new Date(b.id).getTime() - new Date(a.id).getTime());
       setHistory(newHistory);
-      localStorage.setItem("wellmind_chat_history", JSON.stringify(newHistory));
+      localStorage.setItem("pain2peace_chat_history", JSON.stringify(newHistory));
     }
   }, [messages, currentSessionId]);
 
@@ -84,16 +84,16 @@ export default function MobileSupport() {
     const newSessionId = new Date().toISOString();
     setMessages([]);
     setCurrentSessionId(newSessionId);
-    localStorage.setItem("wellmind_last_session_id", newSessionId);
+    localStorage.setItem("pain2peace_last_session_id", newSessionId);
     setIsHistoryOpen(false);
   };
 
   const loadSession = (sessionId: string) => {
-    const session = JSON.parse(localStorage.getItem("wellmind_chat_history") || "[]").find((s: ChatSession) => s.id === sessionId);
+    const session = JSON.parse(localStorage.getItem("pain2peace_chat_history") || "[]").find((s: ChatSession) => s.id === sessionId);
     if (session) {
       setMessages(session.messages);
       setCurrentSessionId(session.id);
-      localStorage.setItem("wellmind_last_session_id", session.id);
+      localStorage.setItem("pain2peace_last_session_id", session.id);
     }
     setIsHistoryOpen(false);
   };
@@ -143,7 +143,7 @@ export default function MobileSupport() {
       <div className="relative flex flex-col h-[calc(100vh-8rem)]">
         {messages.length === 0 && !isLoading ? (
           <div className="flex-1 flex flex-col items-center justify-center text-center p-4">
-              <WellMindLogo className="h-16 w-16" />
+              <Pain2PeaceLogo className="h-16 w-16" />
               <h2 className="mt-6 text-2xl font-semibold">Your safe space to talk.</h2>
               <p className="mt-2 text-muted-foreground">I'm here to listen, whenever you're ready.</p>
               <div className="mt-8 flex flex-col sm:flex-row gap-2 w-full max-w-sm">

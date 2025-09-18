@@ -17,7 +17,7 @@ import {
 } from '@/components/ui/sidebar';
 import Chatbot from '@/components/chatbot/chatbot';
 import { Dashboard } from '@/components/dashboard';
-import WellMindLogo from '@/components/well-mind-logo';
+import Pain2PeaceLogo from '@/components/pain2peace-logo';
 
 export default function DesktopLayout() {
   return (
@@ -25,8 +25,8 @@ export default function DesktopLayout() {
       <Sidebar>
         <SidebarHeader>
           <div className="flex items-center gap-2 p-2">
-            <WellMindLogo />
-            <h1 className="text-xl font-semibold">WellMind</h1>
+            <Pain2PeaceLogo />
+            <h1 className="text-xl font-semibold">pain2peace</h1>
           </div>
         </SidebarHeader>
         <SidebarContent>
